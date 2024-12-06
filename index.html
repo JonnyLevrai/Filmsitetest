@@ -38,13 +38,6 @@
         button:hover {
             background-color: #45a049;
         }
-
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -52,24 +45,16 @@
     <h1>Bienvenue sur mon site web !</h1>
 
     <div class="btn-container">
-        <button onclick="changeIframe('https://cloudmatoc.com/iframe/we7JaxHqw8')">SPY X FAMILY CODE : WHITE</button>
-        <button onclick="changeIframe('https://cloudmatoc.com/iframe/Hgt4vM2qSY')">Sonic 1</button>
-        <button onclick="changeIframe('https://cloudmatoc.com/iframe/yhLeqlsmCF')">Sonic 2</button>
-        <button onclick="changeIframe('https://sharecloudy.com/iframe/dNP5fyxUfv')">Deadpool & Wolverine</button>
-        <button onclick="changeIframe('https://sharecloudy.com/iframe/sEVIt3iGXx')">That Christmas</button>
-        <button onclick="changeIframe('https://cloudmatoc.com/iframe/QxTOEXY5ye')">Un p'tit truc en plus</button>
-        <button onclick="changeIframe('https://cloudmatoc.com/iframe/tb1lzwhBqI')">Deadpool 1</button>
-        <button onclick="changeIframe('https://cloudmatoc.com/iframe/mMeoWWqjLx')">Deadpool 2</button>
-        <button onclick="changeIframe('https://sharecloudy.com/iframe/T7X7cQdki5')">Dear Santa</button>
+        <button onclick="window.location.href='https://cloudmatoc.com/iframe/we7JaxHqw8'">SPY X FAMILY CODE : WHITE</button>
+        <button onclick="window.location.href='https://cloudmatoc.com/iframe/Hgt4vM2qSY'">Sonic 1</button>
+        <button onclick="window.location.href='https://cloudmatoc.com/iframe/yhLeqlsmCF'">Sonic 2</button>
+        <button onclick="window.location.href='https://sharecloudy.com/iframe/dNP5fyxUfv'">Deadpool & Wolverine</button>
+        <button onclick="window.location.href='https://sharecloudy.com/iframe/sEVIt3iGXx'">That Christmas</button>
+        <button onclick="window.location.href='https://cloudmatoc.com/iframe/QxTOEXY5ye'">Un p'tit truc en plus</button>
+        <button onclick="window.location.href='https://cloudmatoc.com/iframe/tb1lzwhBqI'">Deadpool 1</button>
+        <button onclick="window.location.href='https://cloudmatoc.com/iframe/mMeoWWqjLx'">Deadpool 2</button>
+        <button onclick="window.location.href='https://sharecloudy.com/iframe/T7X7cQdki5'">Dear Santa</button>
     </div>
-
-    <iframe id="contentIframe" src="" frameborder="0"></iframe>
-
-    <script>
-        function changeIframe(url) {
-            document.getElementById("contentIframe").src = url;
-        }
-    </script>
 
 </body>
 </html>
