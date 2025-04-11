@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StreamZoneLeyna</title>
+  <title>FilmStreamLeyna</title>
+  <link rel="icon" type="image/png" href="image-removebg-preview (3).png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -30,7 +31,7 @@
     }
 
     nav {
-      width: 240px;
+      width: 220px;
       background-color: var(--card);
       padding: 30px 20px;
       display: flex;
@@ -39,22 +40,9 @@
       border-right: 1px solid #333;
     }
 
-    nav .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    nav img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-    }
-
     nav h2 {
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
 
     nav button {
@@ -82,6 +70,17 @@
     .main-content h1 {
       font-size: 2.5rem;
       margin-bottom: 30px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .logo-container img {
+      height: 50px;
     }
 
     .btn-container {
@@ -126,7 +125,7 @@
       font-weight: bold;
       color: var(--secondary);
       margin-bottom: 20px;
-      word-break: break-word;
+      word-break: break-all;
     }
 
     .copy-btn {
@@ -159,10 +158,7 @@
 <body>
 
   <nav>
-    <div class="logo-container">
-      <img src="image-removebg-preview (3).png" alt="Logo" />
-      <h2>StreamLeyna</h2>
-    </div>
+    <h2>🎬 Menu</h2>
     <button onclick="showSection('films')">🎥 Films</button>
     <button onclick="showSection('contact')">📩 Contact</button>
     <button onclick="showSection('discord')">💬 Discord</button>
@@ -170,9 +166,11 @@
   </nav>
 
   <div class="main-content">
-    <!-- FILMS -->
     <section id="films">
-      <h1>Bienvenue sur StreamZoneLeyna</h1>
+      <div class="logo-container">
+        <img src="image-removebg-preview (3).png" alt="Logo">
+        <h1>Bienvenue sur FilmLeyna</h1>
+      </div>
       <div class="btn-container">
         <button onclick="window.open('https://cloudmatoc.com/iframe/we7JaxHqw8', '_blank')">SPY X FAMILY CODE : WHITE</button>
         <button onclick="window.open('https://cloudmatoc.com/iframe/Hgt4vM2qSY', '_blank')">Sonic 1</button>
@@ -187,7 +185,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="hidden">
       <h1>Contact</h1>
       <div class="contact-box">
@@ -197,7 +194,6 @@
       </div>
     </section>
 
-    <!-- DISCORD -->
     <section id="discord" class="hidden">
       <h1>Serveur Discord</h1>
       <div class="discord-box">
@@ -206,7 +202,6 @@
       </div>
     </section>
 
-    <!-- AUTRES -->
     <section id="autre" class="hidden">
       <h1>Mes autres sites</h1>
       <div class="other-box">
@@ -219,7 +214,7 @@
     </section>
 
     <div class="footer">
-      <p>| © 2025 Leyna_la_vrai |</p>
+      <p>| © 2025 Jonny_le_vrai |</p>
     </div>
   </div>
 
