@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FilmStreamJonny</title>
+  <title>StreamZoneJonny</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -30,7 +30,7 @@
     }
 
     nav {
-      width: 220px;
+      width: 240px;
       background-color: var(--card);
       padding: 30px 20px;
       display: flex;
@@ -39,9 +39,22 @@
       border-right: 1px solid #333;
     }
 
+    nav .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    nav img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
     nav h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+      font-size: 1.3rem;
+      font-weight: 600;
     }
 
     nav button {
@@ -113,7 +126,7 @@
       font-weight: bold;
       color: var(--secondary);
       margin-bottom: 20px;
-      word-break: break-all;
+      word-break: break-word;
     }
 
     .copy-btn {
@@ -146,7 +159,10 @@
 <body>
 
   <nav>
-    <h2>🎬 Menu</h2>
+    <div class="logo-container">
+      <img src="ton-logo.png" alt="Logo" />
+      <h2>StreamZoneJonny</h2>
+    </div>
     <button onclick="showSection('films')">🎥 Films</button>
     <button onclick="showSection('contact')">📩 Contact</button>
     <button onclick="showSection('discord')">💬 Discord</button>
@@ -156,7 +172,7 @@
   <div class="main-content">
     <!-- FILMS -->
     <section id="films">
-      <h1>Bienvenue sur FilmStreamJonny</h1>
+      <h1>Bienvenue sur StreamZoneJonny</h1>
       <div class="btn-container">
         <button onclick="window.open('https://cloudmatoc.com/iframe/we7JaxHqw8', '_blank')">SPY X FAMILY CODE : WHITE</button>
         <button onclick="window.open('https://cloudmatoc.com/iframe/Hgt4vM2qSY', '_blank')">Sonic 1</button>
@@ -190,7 +206,7 @@
       </div>
     </section>
 
-    <!-- AUTRE -->
+    <!-- AUTRES -->
     <section id="autre" class="hidden">
       <h1>Mes autres sites</h1>
       <div class="other-box">
