@@ -93,7 +93,7 @@
       transform: translateY(-4px);
     }
 
-    .contact-box {
+    .contact-box, .discord-box, .other-box {
       max-width: 500px;
       margin: 0 auto;
       background-color: var(--card);
@@ -102,7 +102,7 @@
       text-align: center;
     }
 
-    .contact-box p {
+    .contact-box p, .discord-box p, .other-box p {
       font-size: 1.1rem;
       margin-bottom: 20px;
       color: var(--muted);
@@ -149,9 +149,12 @@
     <h2>🎬 Menu</h2>
     <button onclick="showSection('films')">🎥 Films</button>
     <button onclick="showSection('contact')">📩 Contact</button>
+    <button onclick="showSection('discord')">💬 Discord</button>
+    <button onclick="showSection('autre')">🌐 Autres sites</button>
   </nav>
 
   <div class="main-content">
+    <!-- FILMS -->
     <section id="films">
       <h1>Bienvenue sur FilmStreamJonny</h1>
       <div class="btn-container">
@@ -168,12 +171,34 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="hidden">
       <h1>Contact</h1>
       <div class="contact-box">
         <p>Tu veux me contacter ? Voici mon adresse email :</p>
         <div class="email" id="emailToCopy">jonny.legit@email.com</div>
         <button class="copy-btn" onclick="copyEmail()">Copier l'adresse email</button>
+      </div>
+    </section>
+
+    <!-- DISCORD -->
+    <section id="discord" class="hidden">
+      <h1>Serveur Discord</h1>
+      <div class="discord-box">
+        <p>Rejoins notre communauté sur Discord :</p>
+        <button class="copy-btn" onclick="window.open('https://discord.gg/TON_INVITE_ICI', '_blank')">Rejoindre le Discord</button>
+      </div>
+    </section>
+
+    <!-- AUTRE -->
+    <section id="autre" class="hidden">
+      <h1>Mes autres sites</h1>
+      <div class="other-box">
+        <p>Tu peux aussi visiter mes autres projets :</p>
+        <div class="btn-container">
+          <button onclick="window.open('https://mon-site-1.com', '_blank')">Site 1</button>
+          <button onclick="window.open('https://mon-site-2.com', '_blank')">Site 2</button>
+        </div>
       </div>
     </section>
 
@@ -184,8 +209,10 @@
 
   <script>
     function showSection(sectionId) {
-      document.getElementById('films').classList.add('hidden');
-      document.getElementById('contact').classList.add('hidden');
+      const sections = ['films', 'contact', 'discord', 'autre'];
+      sections.forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
       document.getElementById(sectionId).classList.remove('hidden');
     }
 
