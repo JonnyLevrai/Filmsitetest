@@ -4,19 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>StreamZoneLeyna</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="image-removebg-preview (3).png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0f0f1a;
-      --primary: #7f5af0;
-      --secondary: #2cb67d;
+      --primary-dark: #7f5af0;
+      --secondary-dark: #2cb67d;
       --text-dark: #ffffff;
-      --muted: #a1a1aa;
+      --muted-dark: #a1a1aa;
       --card-dark: #1c1c2b;
-      --bg-light: #f4f4f4;
-      --text-light: #333333;
-      --card-light: #ffffff;
+      
+      --bg-light: #ffffff;
+      --primary-light: #6c4aff;
+      --secondary-light: #2cb67d;
+      --text-light: #000000;
+      --muted-light: #606060;
+      --card-light: #f7f7f7;
     }
 
     * {
@@ -31,7 +35,7 @@
       color: var(--text-dark);
       display: flex;
       height: 100vh;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     nav {
@@ -96,7 +100,7 @@
     }
 
     .btn-container button {
-      background: linear-gradient(135deg, var(--primary), #9e7fff);
+      background: linear-gradient(135deg, var(--primary-dark), #9e7fff);
       border: none;
       color: white;
       padding: 16px;
@@ -123,19 +127,19 @@
     .contact-box p, .discord-box p, .other-box p {
       font-size: 1.1rem;
       margin-bottom: 20px;
-      color: var(--muted);
+      color: var(--muted-dark);
     }
 
     .email {
       font-size: 1.2rem;
       font-weight: bold;
-      color: var(--secondary);
+      color: var(--secondary-dark);
       margin-bottom: 20px;
       word-break: break-word;
     }
 
     .copy-btn {
-      background-color: var(--primary);
+      background-color: var(--primary-dark);
       color: white;
       border: none;
       padding: 10px 20px;
@@ -152,7 +156,7 @@
     .footer {
       margin-top: 40px;
       font-size: 0.85rem;
-      color: var(--muted);
+      color: var(--muted-dark);
       text-align: center;
     }
 
@@ -160,20 +164,30 @@
       display: none;
     }
 
-    /* Bouton de bascule mode sombre/clair */
-    .mode-switch {
-      background-color: var(--primary);
-      color: var(--text-dark);
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-      align-self: flex-start;
-      transition: background 0.3s;
+    /* Light Mode Styles */
+    .light-mode {
+      background-color: var(--bg-light);
+      color: var(--text-light);
     }
 
-    .mode-switch:hover {
-      background-color: #6e4deb;
+    .light-mode nav {
+      background-color: var(--card-light);
+    }
+
+    .light-mode .btn-container button {
+      background: linear-gradient(135deg, var(--primary-light), #9e7fff);
+    }
+
+    .light-mode .contact-box, .light-mode .discord-box, .light-mode .other-box {
+      background-color: var(--card-light);
+    }
+
+    .light-mode .email {
+      color: var(--secondary-light);
+    }
+
+    .light-mode .copy-btn {
+      background-color: var(--primary-light);
     }
   </style>
 </head>
@@ -182,19 +196,21 @@
   <nav>
     <div class="logo-container">
       <img src="image-removebg-preview (3).png" alt="Logo" />
-      <h2>StreamZoneJonny</h2>
     </div>
     <button onclick="showSection('films')">🎥 Films</button>
     <button onclick="showSection('contact')">📩 Contact</button>
     <button onclick="showSection('discord')">💬 Discord</button>
     <button onclick="showSection('autre')">🌐 Autres sites</button>
-    <button class="mode-switch" onclick="toggleMode()">🌙 Mode Sombre/Clair</button>
+
+    <!-- Mode Toggle Buttons -->
+    <button onclick="switchMode('dark')">🌙 Mode Sombre</button>
+    <button onclick="switchMode('light')">☀️ Mode Clair</button>
   </nav>
 
   <div class="main-content">
     <!-- FILMS -->
     <section id="films">
-      <h1>Bienvenue sur StreamZoneLeyna</h1>
+      <h1>Bienvenue sur StreamZoneleyna</h1>
       <div class="btn-container">
         <button onclick="window.open('https://cloudmatoc.com/iframe/we7JaxHqw8', '_blank')">SPY X FAMILY CODE : WHITE</button>
         <button onclick="window.open('https://cloudmatoc.com/iframe/Hgt4vM2qSY', '_blank')">Sonic 1</button>
@@ -232,7 +248,7 @@
     <section id="autre" class="hidden">
       <h1>Mes autres sites</h1>
       <div class="other-box">
-        <p>Tu peux aussi visiter mes autres projets :</p>
+        <p>Tu peux aussi visiter mes autres projets ( le premier c'est le site de mon pote ) :</p>
         <div class="btn-container">
           <button onclick="window.open('https://mon-site-1.com', '_blank')">Site 1</button>
           <button onclick="window.open('https://mon-site-2.com', '_blank')">Site 2</button>
@@ -254,40 +270,21 @@
       document.getElementById(sectionId).classList.remove('hidden');
     }
 
-    function toggleMode() {
-      const body = document.body;
-      const nav = document.querySelector('nav');
-      const footer = document.querySelector('.footer');
-      const modeSwitch = document.querySelector('.mode-switch');
-      const logo = document.querySelector('nav img');
-      const buttons = document.querySelectorAll('nav button, .btn-container button');
-
-      if (body.style.backgroundColor === 'rgb(244, 244, 244)') {
-        // Mode sombre
-        body.style.backgroundColor = 'var(--bg-dark)';
-        body.style.color = 'var(--text-dark)';
-        nav.style.backgroundColor = 'var(--card-dark)';
-        footer.style.color = 'var(--muted)';
-        modeSwitch.style.backgroundColor = 'var(--primary)';
-        logo.src = "image-removebg-preview (3).png";
-        buttons.forEach(button => button.style.color = 'var(--text-dark)');
-      } else {
-        // Mode clair
-        body.style.backgroundColor = 'var(--bg-light)';
-        body.style.color = 'var(--text-light)';
-        nav.style.backgroundColor = 'var(--card-light)';
-        footer.style.color = 'var(--text-light)';
-        modeSwitch.style.backgroundColor = '#6e4deb';
-        logo.src = "image-removebg-preview (3).png"; // Assure-toi que le logo est bien visible en mode clair
-        buttons.forEach(button => button.style.color = 'var(--text-light)');
-      }
-    }
-
     function copyEmail() {
       const emailText = document.getElementById("emailToCopy").innerText;
       navigator.clipboard.writeText(emailText).then(() => {
         alert("Adresse email copiée !");
       });
+    }
+
+    function switchMode(mode) {
+      if (mode === 'light') {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+      } else {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+      }
     }
   </script>
 
