@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FilmStreamLeyna</title>
-  <link rel="icon" type="image/png" href="image-removebg-preview (3).png">
+  <title>StreamZoneLeyna</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f0f1a;
+      --bg-dark: #0f0f1a;
       --primary: #7f5af0;
       --secondary: #2cb67d;
-      --text: #ffffff;
+      --text-dark: #ffffff;
       --muted: #a1a1aa;
-      --card: #1c1c2b;
+      --card-dark: #1c1c2b;
       --bg-light: #f4f4f4;
       --text-light: #333333;
       --card-light: #ffffff;
@@ -27,82 +27,55 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
       display: flex;
-      flex-direction: column;
       height: 100vh;
       transition: all 0.3s ease;
     }
 
     nav {
-      width: 100%;
-      background-color: var(--card);
-      padding: 20px;
+      width: 240px;
+      background-color: var(--card-dark);
+      padding: 30px 20px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid #333;
+      flex-direction: column;
+      gap: 20px;
+      border-right: 1px solid #333;
     }
 
-    .logo-container {
+    nav .logo-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 30px;
     }
 
-    .logo-container img {
-      height: 50px;
+    nav img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
     }
 
     nav h2 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 600;
     }
 
     nav button {
       background: none;
       border: none;
-      color: var(--text);
+      color: var(--text-dark);
       font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .dark-light-switch {
-      background-color: #333;
-      color: white;
+      text-align: left;
       padding: 10px;
-      border-radius: 5px;
       cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
 
-    .dark-light-switch:hover {
-      background-color: #444;
-    }
-
-    .burger-menu {
-      display: none;
-    }
-
-    .menu-items {
-      display: flex;
-      gap: 10px;
-    }
-
-    .burger-menu:checked + .menu-items {
-      display: block;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      background-color: var(--card);
-      width: 100%;
-      padding: 10px 0;
-    }
-
-    .menu-items button {
-      width: 100%;
-      text-align: center;
-      padding: 10px;
+    nav button:hover {
+      background-color: #2a2a40;
     }
 
     .main-content {
@@ -114,19 +87,6 @@
     .main-content h1 {
       font-size: 2.5rem;
       margin-bottom: 30px;
-    }
-
-    .search-container {
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-container input {
-      padding: 10px;
-      width: 50%;
-      border-radius: 8px;
-      border: 1px solid #ccc;
     }
 
     .btn-container {
@@ -151,22 +111,42 @@
       transform: translateY(-4px);
     }
 
-    .coming-soon {
-      background-color: var(--card);
+    .contact-box, .discord-box, .other-box {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: var(--card-dark);
       padding: 30px;
       border-radius: 12px;
       text-align: center;
-      margin-top: 40px;
     }
 
-    .coming-soon h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-
-    .coming-soon p {
+    .contact-box p, .discord-box p, .other-box p {
       font-size: 1.1rem;
+      margin-bottom: 20px;
       color: var(--muted);
+    }
+
+    .email {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .copy-btn:hover {
+      background-color: #6e4deb;
     }
 
     .footer {
@@ -180,16 +160,20 @@
       display: none;
     }
 
-    /* Mobile styling */
-    @media screen and (max-width: 768px) {
-      .burger-menu {
-        display: block;
-      }
+    /* Bouton de bascule mode sombre/clair */
+    .mode-switch {
+      background-color: var(--primary);
+      color: var(--text-dark);
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      align-self: flex-start;
+      transition: background 0.3s;
+    }
 
-      .menu-items {
-        display: none;
-        flex-direction: column;
-      }
+    .mode-switch:hover {
+      background-color: #6e4deb;
     }
   </style>
 </head>
@@ -197,35 +181,35 @@
 
   <nav>
     <div class="logo-container">
-      <img src="image-removebg-preview (3).png" alt="Logo">
-      <h2>🎬 FilmStreamLeyna</h2>
+      <img src="ton-logo.png" alt="Logo" />
+      <h2>StreamZoneLeyna</h2>
     </div>
-    <div class="menu-items">
-      <button onclick="showSection('films')">🎥 Films</button>
-      <button onclick="showSection('contact')">📩 Contact</button>
-      <button onclick="showSection('discord')">💬 Discord</button>
-      <button onclick="showSection('autre')">🌐 Autres sites</button>
-    </div>
-    <input type="checkbox" id="burger-menu" class="burger-menu">
-    <label for="burger-menu" class="burger-icon">🍔</label>
-    <div class="dark-light-switch" onclick="toggleDarkMode()">🌙 Mode Sombre / Clair</div>
+    <button onclick="showSection('films')">🎥 Films</button>
+    <button onclick="showSection('contact')">📩 Contact</button>
+    <button onclick="showSection('discord')">💬 Discord</button>
+    <button onclick="showSection('autre')">🌐 Autres sites</button>
+    <button class="mode-switch" onclick="toggleMode()">🌙 Mode Sombre/Clair</button>
   </nav>
 
   <div class="main-content">
+    <!-- FILMS -->
     <section id="films">
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Rechercher un film..." onkeyup="filterFilms()">
-      </div>
-      <div class="btn-container" id="filmsContainer">
-        <!-- Buttons pour films ici -->
+      <h1>Bienvenue sur StreamZoneLeyna</h1>
+      <div class="btn-container">
+        <button onclick="window.open('https://cloudmatoc.com/iframe/we7JaxHqw8', '_blank')">SPY X FAMILY CODE : WHITE</button>
+        <button onclick="window.open('https://cloudmatoc.com/iframe/Hgt4vM2qSY', '_blank')">Sonic 1</button>
+        <button onclick="window.open('https://cloudmatoc.com/iframe/yhLeqlsmCF', '_blank')">Sonic 2</button>
+        <button onclick="window.open('https://sharecloudy.com/iframe/dNP5fyxUfv', '_blank')">Deadpool & Wolverine</button>
+        <button onclick="window.open('https://sharecloudy.com/iframe/sEVIt3iGXx', '_blank')">That Christmas</button>
+        <button onclick="window.open('https://cloudmatoc.com/iframe/QxTOEXY5ye', '_blank')">Un p'tit truc en plus</button>
+        <button onclick="window.open('https://cloudmatoc.com/iframe/tb1lzwhBqI', '_blank')">Deadpool 1</button>
+        <button onclick="window.open('https://cloudmatoc.com/iframe/mMeoWWqjLx', '_blank')">Deadpool 2</button>
+        <button onclick="window.open('https://sharecloudy.com/iframe/T7X7cQdki5', '_blank')">Dear Santa</button>
+        <button onclick="window.open('https://tatavid.com/embed-50xdphkpel6r-_-amxjRkhNbXAzSGRhM08zNE4wTnExOHEzck5uakltUWwK.html?989668786', '_blank')">La cage dorée</button>
       </div>
     </section>
 
-    <section id="comingSoon" class="coming-soon">
-      <h2>À venir bientôt...</h2>
-      <p>Plus de films à ajouter bientôt, restez à l'écoute !</p>
-    </section>
-
+    <!-- CONTACT -->
     <section id="contact" class="hidden">
       <h1>Contact</h1>
       <div class="contact-box">
@@ -235,6 +219,7 @@
       </div>
     </section>
 
+    <!-- DISCORD -->
     <section id="discord" class="hidden">
       <h1>Serveur Discord</h1>
       <div class="discord-box">
@@ -243,6 +228,7 @@
       </div>
     </section>
 
+    <!-- AUTRES -->
     <section id="autre" class="hidden">
       <h1>Mes autres sites</h1>
       <div class="other-box">
@@ -260,8 +246,6 @@
   </div>
 
   <script>
-    let darkMode = true;
-
     function showSection(sectionId) {
       const sections = ['films', 'contact', 'discord', 'autre'];
       sections.forEach(id => {
@@ -270,24 +254,25 @@
       document.getElementById(sectionId).classList.remove('hidden');
     }
 
-    function toggleDarkMode() {
-      darkMode = !darkMode;
-      if (darkMode) {
-        document.body.style.backgroundColor = 'var(--bg)';
-        document.body.style.color = 'var(--text)';
-      } else {
-        document.body.style.backgroundColor = 'var(--bg-light)';
-        document.body.style.color = 'var(--text-light)';
-      }
-    }
+    function toggleMode() {
+      const body = document.body;
+      const nav = document.querySelector('nav');
+      const footer = document.querySelector('.footer');
+      const modeSwitch = document.querySelector('.mode-switch');
 
-    function filterFilms() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const films = document.querySelectorAll('.btn-container button');
-      films.forEach(film => {
-        const title = film.innerText.toLowerCase();
-        film.style.display = title.includes(query) ? 'block' : 'none';
-      });
+      if (body.style.backgroundColor === 'rgb(244, 244, 244)') {
+        body.style.backgroundColor = 'var(--bg-dark)';
+        body.style.color = 'var(--text-dark)';
+        nav.style.backgroundColor = 'var(--card-dark)';
+        footer.style.color = 'var(--muted)';
+        modeSwitch.style.backgroundColor = 'var(--primary)';
+      } else {
+        body.style.backgroundColor = 'var(--bg-light)';
+        body.style.color = 'var(--text-light)';
+        nav.style.backgroundColor = 'var(--card-light)';
+        footer.style.color = 'var(--text-light)';
+        modeSwitch.style.backgroundColor = '#6e4deb';
+      }
     }
 
     function copyEmail() {
