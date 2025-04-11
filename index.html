@@ -181,8 +181,8 @@
 
   <nav>
     <div class="logo-container">
-      <img src="ton-logo.png" alt="Logo" />
-      <h2>StreamZoneLeyna</h2>
+      <img src="image-removebg-preview (3).png" alt="Logo" />
+      <h2>StreamZoneJonny</h2>
     </div>
     <button onclick="showSection('films')">🎥 Films</button>
     <button onclick="showSection('contact')">📩 Contact</button>
@@ -259,19 +259,27 @@
       const nav = document.querySelector('nav');
       const footer = document.querySelector('.footer');
       const modeSwitch = document.querySelector('.mode-switch');
+      const logo = document.querySelector('nav img');
+      const buttons = document.querySelectorAll('nav button, .btn-container button');
 
       if (body.style.backgroundColor === 'rgb(244, 244, 244)') {
+        // Mode sombre
         body.style.backgroundColor = 'var(--bg-dark)';
         body.style.color = 'var(--text-dark)';
         nav.style.backgroundColor = 'var(--card-dark)';
         footer.style.color = 'var(--muted)';
         modeSwitch.style.backgroundColor = 'var(--primary)';
+        logo.src = "image-removebg-preview (3).png";
+        buttons.forEach(button => button.style.color = 'var(--text-dark)');
       } else {
+        // Mode clair
         body.style.backgroundColor = 'var(--bg-light)';
         body.style.color = 'var(--text-light)';
         nav.style.backgroundColor = 'var(--card-light)';
         footer.style.color = 'var(--text-light)';
         modeSwitch.style.backgroundColor = '#6e4deb';
+        logo.src = "image-removebg-preview (3).png"; // Assure-toi que le logo est bien visible en mode clair
+        buttons.forEach(button => button.style.color = 'var(--text-light)');
       }
     }
 
